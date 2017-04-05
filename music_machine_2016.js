@@ -282,11 +282,15 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
-      // MusicMachine.remove({});
+  Meteor.startup(function () {
+     // MusicMachine.remove({});
       if (MusicMachine.find().count() === 0) {
       MusicMachine.insert({slide: 50});
-
     }
+
+});
+
+     
 
 }
 function toggleOn(id) {
