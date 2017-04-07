@@ -1,6 +1,12 @@
 //playground.js
-
-acontext = new webkitAudioContext() || new AudioContext;  
+// acontext = new webkitAudioContext() || new AudioContext;
+try {
+  acontext = new webkitAudioContext();
+} catch (e){
+  if (e instanceof ReferenceError) {
+    acontext = new AudioContext;
+  }
+} // catch
 
 //Now we can create an instance of our waveform generator and play it.
 

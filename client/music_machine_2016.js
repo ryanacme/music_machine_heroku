@@ -1,12 +1,5 @@
-
-//This code is for everyone. Could go in common.js
-MusicMachine = new Mongo.Collection("musicMachine");
-
-
-if (Meteor.isClient) {
-
-  Meteor.startup(function () {
-
+Meteor.startup(function () {
+  
 });
 
 
@@ -194,7 +187,8 @@ if (Meteor.isClient) {
       }
     },
 
-  });
+  }); // playgrounf helper
+// }); //startup function
 
 
   Template.playground.events({
@@ -279,20 +273,8 @@ if (Meteor.isClient) {
         });
     }
   });
-}
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-     // MusicMachine.remove({});
-      if (MusicMachine.find().count() === 0) {
-      MusicMachine.insert({slide: 50});
-    }
 
-});
-
-     
-
-}
 function toggleOn(id) {
   $('#'+id).bootstrapToggle('on');
 }
